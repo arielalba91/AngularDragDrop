@@ -1,0 +1,28 @@
+<div class="my-container">
+  <h2>Full Squad</h2>
+
+  <div
+   cdkDropList
+   #fullSquadList = "cdkDropList"
+   [cdkDropListData]="squad"
+   [cdkDropListConnectedTo]="[selectedTeamList]"
+   class="my-list"
+   (cdkDropListDropped)="drop($event)">
+   <div class="my-box" *ngFor="let player of squad" cdkDrag>{{player}}</div>
+  </div>
+</div>
+
+<div class="my-container">
+   <h2>Selected Team</h2>
+   <div
+    cdkDropList
+    #selectedTeamList="cdkDropList"
+    [cdkDropListData]="selectedPlayers"
+    [cdkDropListConnectedTo]="[fullSquadList]"
+    class="my-list"
+    (cdkDropListDropped)="drop($event)">
+     <div class="my-box" *ngFor="let player of selectedPlayers" cdkDrag>
+        {{player}}
+     </div>
+   </div>
+</div>

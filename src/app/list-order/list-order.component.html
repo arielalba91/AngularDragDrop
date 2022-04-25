@@ -1,0 +1,5 @@
+<div class="my-list" cdkDropList (cdkDropListDropped)="drop($event)">
+  <div class="my-box" *ngFor="let player of players" cdkDrag>
+      Name: {{player.Name}},   Position:{{player.Position}}
+  </div>
+</div>
